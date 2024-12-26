@@ -1,0 +1,4 @@
+$milis_snake_app $mol_page
+	title \CRUS-ивая змейка
+	body /
+		<= Test $mol_text text \123
