@@ -7,6 +7,7 @@ namespace $ {
         Max_score: $hyoo_crus_atom_real,
         Max_x: $hyoo_crus_atom_real,
         Max_y: $hyoo_crus_atom_real,
+        Death_count: $hyoo_crus_atom_real,
     }) {
         max_score(next?: number) {
             return this.Max_score(next)?.val(next) ?? 0
@@ -30,6 +31,19 @@ namespace $ {
         max_y(next?: number) {
             return this.Max_y(next)?.val(next) ?? 5
         }
+
+        death_count(next?: number) {
+            return this.Death_count(next)?.val(next) ?? 0
+		}
+		
+		death_count_up() {
+			this.death_count(this.death_count()+1)
+		}
+
+		win() {
+			this.death_count_up()
+			this.score(0)
+		}
 
         // @ $mol_mem
         // skill_list(){

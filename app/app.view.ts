@@ -57,8 +57,8 @@ namespace $.$$ {
         cell_title(id_x_y: string) {
             const parsed = this.parse_y_x(id_x_y)
             // return JSON.stringify(id_x_y) + JSON.stringify(parsed)
-            return id_x_y
-            // return ''
+            // return id_x_y
+            return ''
         }
 
         is_cell_food(id_x_y: string) {
@@ -92,8 +92,8 @@ namespace $.$$ {
 
         new_game() {
             this.snake([this.random_point()])
-            this.eat_food()
-			this.person().score(0)
+			this.eat_food()
+			this.person().win()
 			console.log('>>> ' ,this.person(), this.person().score())
         }
 
@@ -129,7 +129,7 @@ namespace $.$$ {
 
 		score_text(): string {
 			// return `Очки:`
-			return `Очки: ${this.person().score()}. Рекорд: ${this.person().max_score()}`
+			return `Очки: ${this.person().score()}. Рекорд: ${this.person().max_score()}. Змеек было: ${this.person().death_count()}`
 			// return `Очки: ${this.person().score()}.`
 		}
 
