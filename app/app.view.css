@@ -1,0 +1,14 @@
+[milis_snake_app_cell] {
+	width: 50px;
+	height: 50px;
+}
+[milis_snake_app_cell][snake] {
+	background: green;
+}
+[milis_snake_app_cell][food] {
+	background: orange;
+	border-radius: 50%;
+}
+[milis_snake_app_cell][head] {
+	background: blue;
+}
