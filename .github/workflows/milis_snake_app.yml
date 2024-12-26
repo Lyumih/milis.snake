@@ -22,7 +22,7 @@ jobs:
     
     - uses: hyoo-ru/mam_build@master2
       with:
-        package: 'milis/snake' #FIXME namespace of this package
+        package: 'milis' #FIXME namespace of this package
         modules: 'snake' #FIXME which modules to build, remove line if only on module at the root
         
     - uses: hyoo-ru/gh-deploy@v4.4.1
