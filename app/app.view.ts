@@ -3,7 +3,10 @@ namespace $.$$ {
 
 		@$mol_mem
 		person(): $milis_snake_person_crus {
-			return this.$.$hyoo_crus_glob.home($milis_snake_person_crus)
+			const land_ref = '4s76OmhG_LfZhGVGd'
+			const node = $hyoo_crus_glob.Node($hyoo_crus_ref(land_ref), $milis_snake_person_crus)
+			return node
+			// return this.$.$hyoo_crus_glob.home($milis_snake_person_crus)
 		}
 
         size() {
