@@ -775,7 +775,7 @@ $milis_snake_app $mol_page
 	body /
 		<= Info $mol_text text \
 			\Одна змейка, чтобы управлять миром
-		<= Score $mol_text text <= score_text \Очки: 0
+		<= Score $mol_text text <= score_text \Очки: 1
 		<= Keyboard $milis_snake_app_keyboard
 			left? <= left? null
 			right? <= right? null

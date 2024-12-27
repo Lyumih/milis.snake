@@ -16154,7 +16154,7 @@ var $;
 			return obj;
 		}
 		score_text(){
-			return "Очки: 0";
+			return "Очки: 1";
 		}
 		Score(){
 			const obj = new this.$.$mol_text();
