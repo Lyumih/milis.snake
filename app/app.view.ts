@@ -3,8 +3,8 @@ namespace $.$$ {
 
 		@$mol_mem
 		person(): $milis_snake_person_crus {
-			// return $hyoo_crus_glob.Node($hyoo_crus_ref(this.seed()), $milis_snake_person_crus)
-			return this.$.$hyoo_crus_glob.home($milis_snake_person_crus)
+			return $hyoo_crus_glob.Node($hyoo_crus_ref(this.snake_seed()), $milis_snake_person_crus) // Из конкретного сида
+			// return this.$.$hyoo_crus_glob.home($milis_snake_person_crus) // Для каждого пользователя своя уникальная змейка
 		}
 
         size() {
