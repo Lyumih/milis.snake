@@ -16610,7 +16610,7 @@ var $;
     (function ($$) {
         class $milis_snake_app extends $.$milis_snake_app {
             person() {
-                return this.$.$hyoo_crus_glob.home($milis_snake_person_crus);
+                return $hyoo_crus_glob.Node($hyoo_crus_ref(this.snake_seed()), $milis_snake_person_crus);
             }
             size() {
                 return this.max_x() * this.max_y();
