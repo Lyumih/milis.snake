@@ -7310,6 +7310,123 @@ declare namespace $ {
 
 //# sourceMappingURL=row.view.tree.d.ts.map
 declare namespace $ {
+
+	export class $mol_icon_forum extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=forum.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_forum_outline extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=outline.view.tree.d.ts.map
+declare namespace $ {
+
+	export class $mol_icon_open_in_new extends $mol_icon {
+		path( ): string
+	}
+	
+}
+
+//# sourceMappingURL=new.view.tree.d.ts.map
+declare namespace $ {
+    class $mol_media extends $mol_object2 {
+        static match(query: string, next?: boolean): boolean;
+    }
+}
+
+declare namespace $ {
+    function $mol_lights(this: $, next?: boolean): boolean;
+}
+
+declare namespace $ {
+
+	type $mol_link__uri_mol_chat_1 = $mol_type_enforce<
+		ReturnType< $mol_chat['standalone'] >
+		,
+		ReturnType< $mol_link['uri'] >
+	>
+	type $mol_link__sub_mol_chat_2 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_link['sub'] >
+	>
+	type $mol_link__arg_mol_chat_3 = $mol_type_enforce<
+		({ 
+			'mol_chat': any,
+		}) 
+		,
+		ReturnType< $mol_link['arg'] >
+	>
+	type $mol_link__sub_mol_chat_4 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_link['sub'] >
+	>
+	type $mol_frame__uri_mol_chat_5 = $mol_type_enforce<
+		ReturnType< $mol_chat['embed'] >
+		,
+		ReturnType< $mol_frame['uri'] >
+	>
+	type $mol_page__title_mol_chat_6 = $mol_type_enforce<
+		ReturnType< $mol_chat['title'] >
+		,
+		ReturnType< $mol_page['title'] >
+	>
+	type $mol_page__tools_mol_chat_7 = $mol_type_enforce<
+		readonly(any)[]
+		,
+		ReturnType< $mol_page['tools'] >
+	>
+	type $mol_page__Body_mol_chat_8 = $mol_type_enforce<
+		ReturnType< $mol_chat['Embed'] >
+		,
+		ReturnType< $mol_page['Body'] >
+	>
+	export class $mol_chat extends $mol_link {
+		Icon( ): $mol_icon_forum_outline
+		title( ): string
+		standalone( ): string
+		Standalone_icon( ): $mol_icon_open_in_new
+		Esternal( ): $mol_link
+		Close_icon( ): $mol_icon_close
+		Close( ): $mol_link
+		embed( ): string
+		Embed( ): $mol_frame
+		Page( ): $mol_page
+		seed( ): string
+		opened( ): boolean
+		arg( ): ({ 
+			'mol_chat': string,
+		}) 
+		hint( ): ReturnType< $mol_chat['title'] >
+		sub( ): readonly(any)[]
+		pages( ): readonly(any)[]
+	}
+	
+}
+
+//# sourceMappingURL=chat.view.tree.d.ts.map
+declare namespace $.$$ {
+    class $mol_chat extends $.$mol_chat {
+        opened(): boolean;
+        pages(): $mol_page[];
+        standalone(): string;
+        embed(): string;
+    }
+}
+
+declare namespace $ {
+}
+
+declare namespace $ {
     const $milis_snake_person_crus_base: Omit<typeof $hyoo_crus_home, "prototype"> & (new (...args: any[]) => $mol_type_override<$hyoo_crus_home, {
         readonly Score: (auto?: any) => $hyoo_crus_atom_real | null;
         readonly Max_score: (auto?: any) => $hyoo_crus_atom_real | null;
@@ -7475,66 +7592,81 @@ declare namespace $ {
 		ReturnType< $mol_hotkey['key'] >
 	>
 	type $mol_text__text_milis_snake_app_2 = $mol_type_enforce<
-		string
-		,
-		ReturnType< $mol_text['text'] >
-	>
-	type $mol_text__text_milis_snake_app_3 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['score_text'] >
 		,
 		ReturnType< $mol_text['text'] >
 	>
-	type $milis_snake_app_keyboard__left_milis_snake_app_4 = $mol_type_enforce<
+	type $milis_snake_app_keyboard__left_milis_snake_app_3 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['left'] >
 		,
 		ReturnType< $milis_snake_app_keyboard['left'] >
 	>
-	type $milis_snake_app_keyboard__right_milis_snake_app_5 = $mol_type_enforce<
+	type $milis_snake_app_keyboard__right_milis_snake_app_4 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['right'] >
 		,
 		ReturnType< $milis_snake_app_keyboard['right'] >
 	>
-	type $milis_snake_app_keyboard__top_milis_snake_app_6 = $mol_type_enforce<
+	type $milis_snake_app_keyboard__top_milis_snake_app_5 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['top'] >
 		,
 		ReturnType< $milis_snake_app_keyboard['top'] >
 	>
-	type $milis_snake_app_keyboard__down_milis_snake_app_7 = $mol_type_enforce<
+	type $milis_snake_app_keyboard__down_milis_snake_app_6 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['down'] >
 		,
 		ReturnType< $milis_snake_app_keyboard['down'] >
 	>
-	type $milis_snake_app_cell__cell_title_milis_snake_app_8 = $mol_type_enforce<
+	type $milis_snake_app_cell__cell_title_milis_snake_app_7 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['cell_title'] >
 		,
 		ReturnType< $milis_snake_app_cell['cell_title'] >
 	>
-	type $milis_snake_app_cell__is_cell_food_milis_snake_app_9 = $mol_type_enforce<
+	type $milis_snake_app_cell__is_cell_food_milis_snake_app_8 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['is_cell_food'] >
 		,
 		ReturnType< $milis_snake_app_cell['is_cell_food'] >
 	>
-	type $milis_snake_app_cell__is_cell_snake_milis_snake_app_10 = $mol_type_enforce<
+	type $milis_snake_app_cell__is_cell_snake_milis_snake_app_9 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['is_cell_snake'] >
 		,
 		ReturnType< $milis_snake_app_cell['is_cell_snake'] >
 	>
-	type $milis_snake_app_cell__is_cell_snake_head_milis_snake_app_11 = $mol_type_enforce<
+	type $milis_snake_app_cell__is_cell_snake_head_milis_snake_app_10 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['is_cell_snake_head'] >
 		,
 		ReturnType< $milis_snake_app_cell['is_cell_snake_head'] >
 	>
-	type $mol_row__sub_milis_snake_app_12 = $mol_type_enforce<
+	type $mol_row__sub_milis_snake_app_11 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['x_list'] >
 		,
 		ReturnType< $mol_row['sub'] >
 	>
-	type $mol_list__rows_milis_snake_app_13 = $mol_type_enforce<
+	type $mol_list__rows_milis_snake_app_12 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['y_list'] >
 		,
 		ReturnType< $mol_list['rows'] >
 	>
-	type $mol_text__text_milis_snake_app_14 = $mol_type_enforce<
+	type $mol_chat__opened_milis_snake_app_13 = $mol_type_enforce<
+		boolean
+		,
+		ReturnType< $mol_chat['opened'] >
+	>
+	type $mol_chat__sub_milis_snake_app_14 = $mol_type_enforce<
+		any
+		,
+		ReturnType< $mol_chat['sub'] >
+	>
+	type $mol_chat__seed_milis_snake_app_15 = $mol_type_enforce<
+		string
+		,
+		ReturnType< $mol_chat['seed'] >
+	>
+	type $mol_view__sub_milis_snake_app_16 = $mol_type_enforce<
+		ReturnType< $milis_snake_app['chat_pages'] >
+		,
+		ReturnType< $mol_view['sub'] >
+	>
+	type $mol_text__text_milis_snake_app_17 = $mol_type_enforce<
 		ReturnType< $milis_snake_app['logs'] >
 		,
 		ReturnType< $mol_text['text'] >
@@ -7542,7 +7674,6 @@ declare namespace $ {
 	export class $milis_snake_app extends $mol_page {
 		Player_keyboard( ): $mol_hotkey
 		Status( ): $hyoo_crus_status
-		Info( ): $mol_text
 		score_text( ): string
 		Score( ): $mol_text
 		left( next?: any ): any
@@ -7559,9 +7690,13 @@ declare namespace $ {
 		X( id: any): $mol_row
 		y_list( ): readonly(any)[]
 		Y( ): $mol_list
+		chat_pages( ): ReturnType< ReturnType< $milis_snake_app['Chat'] >['pages'] >
+		Chat( ): $mol_chat
+		Pages2( ): $mol_view
 		logs( ): string
 		Logs( ): $mol_text
 		title( ): string
+		snake_seed( ): string
 		max_x( ): number
 		max_y( ): number
 		person( ): $milis_snake_person_crus

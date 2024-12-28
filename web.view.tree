@@ -721,6 +721,34 @@ $mol_text_span $mol_paragraph
 
 $mol_row $mol_view
 
+$mol_icon_forum $mol_icon path \M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z
+
+$mol_icon_forum_outline $mol_icon path \M15,4V11H5.17L4,12.17V4H15M16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12V3A1,1 0 0,0 16,2M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z
+
+$mol_icon_open_in_new $mol_icon path \M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z
+
+$mol_chat $mol_link
+	seed \
+	opened false
+	arg * mol_chat \
+	hint <= title
+	sub /
+		<= Icon $mol_icon_forum_outline
+	pages /
+		<= Page $mol_page
+			title <= title @ \Discussion
+			tools /
+				<= Esternal $mol_link
+					uri <= standalone \
+					sub /
+						<= Standalone_icon $mol_icon_open_in_new
+				<= Close $mol_link
+					arg * mol_chat null
+					sub /
+						<= Close_icon $mol_icon_close
+			Body <= Embed $mol_frame
+				uri <= embed \
+
 $mol_button_major $mol_button_minor
 	theme \$mol_theme_base
 
@@ -756,6 +784,7 @@ $mol_text_list_item $mol_paragraph
 
 $milis_snake_app $mol_page
 	title \CRUSивая Змейка
+	snake_seed \4s76OmhG_LfZhGVGd
 	max_x 4
 	max_y 3
 	person $milis_snake_person_crus
@@ -773,8 +802,6 @@ $milis_snake_app $mol_page
 	foot /
 		<= Status $hyoo_crus_status
 	body /
-		<= Info $mol_text text \
-			\Одна змейка, чтобы управлять миром
 		<= Score $mol_text text <= score_text \Очки: 1
 		<= Keyboard $milis_snake_app_keyboard
 			left? <= left? null
@@ -788,6 +815,12 @@ $milis_snake_app $mol_page
 					is_cell_food <= is_cell_food* false
 					is_cell_snake <= is_cell_snake* false
 					is_cell_snake_head <= is_cell_snake_head* false
+		<= Chat $mol_chat
+			opened true
+			sub null
+			seed \uv1w0i_p0lo5c
+			pages => chat_pages
+		<= Pages2 $mol_view sub <= chat_pages
 		<= Logs $mol_text text <= logs \
 
 $milis_snake_app_cell $mol_button_major

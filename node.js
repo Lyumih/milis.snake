@@ -15941,6 +15941,208 @@ var $;
 "use strict";
 
 ;
+	($.$mol_icon_forum) = class $mol_icon_forum extends ($.$mol_icon) {
+		path(){
+			return "M17,12V3A1,1 0 0,0 16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_forum_outline) = class $mol_icon_forum_outline extends ($.$mol_icon) {
+		path(){
+			return "M15,4V11H5.17L4,12.17V4H15M16,2H3A1,1 0 0,0 2,3V17L6,13H16A1,1 0 0,0 17,12V3A1,1 0 0,0 16,2M21,6H19V15H6V17A1,1 0 0,0 7,18H18L22,22V7A1,1 0 0,0 21,6Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_icon_open_in_new) = class $mol_icon_open_in_new extends ($.$mol_icon) {
+		path(){
+			return "M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z";
+		}
+	};
+
+
+;
+"use strict";
+
+;
+	($.$mol_chat) = class $mol_chat extends ($.$mol_link) {
+		Icon(){
+			const obj = new this.$.$mol_icon_forum_outline();
+			return obj;
+		}
+		title(){
+			return (this.$.$mol_locale.text("$mol_chat_title"));
+		}
+		standalone(){
+			return "";
+		}
+		Standalone_icon(){
+			const obj = new this.$.$mol_icon_open_in_new();
+			return obj;
+		}
+		Esternal(){
+			const obj = new this.$.$mol_link();
+			(obj.uri) = () => ((this.standalone()));
+			(obj.sub) = () => ([(this.Standalone_icon())]);
+			return obj;
+		}
+		Close_icon(){
+			const obj = new this.$.$mol_icon_close();
+			return obj;
+		}
+		Close(){
+			const obj = new this.$.$mol_link();
+			(obj.arg) = () => ({"mol_chat": null});
+			(obj.sub) = () => ([(this.Close_icon())]);
+			return obj;
+		}
+		embed(){
+			return "";
+		}
+		Embed(){
+			const obj = new this.$.$mol_frame();
+			(obj.uri) = () => ((this.embed()));
+			return obj;
+		}
+		Page(){
+			const obj = new this.$.$mol_page();
+			(obj.title) = () => ((this.title()));
+			(obj.tools) = () => ([(this.Esternal()), (this.Close())]);
+			(obj.Body) = () => ((this.Embed()));
+			return obj;
+		}
+		seed(){
+			return "";
+		}
+		opened(){
+			return false;
+		}
+		arg(){
+			return {"mol_chat": ""};
+		}
+		hint(){
+			return (this.title());
+		}
+		sub(){
+			return [(this.Icon())];
+		}
+		pages(){
+			return [(this.Page())];
+		}
+	};
+	($mol_mem(($.$mol_chat.prototype), "Icon"));
+	($mol_mem(($.$mol_chat.prototype), "Standalone_icon"));
+	($mol_mem(($.$mol_chat.prototype), "Esternal"));
+	($mol_mem(($.$mol_chat.prototype), "Close_icon"));
+	($mol_mem(($.$mol_chat.prototype), "Close"));
+	($mol_mem(($.$mol_chat.prototype), "Embed"));
+	($mol_mem(($.$mol_chat.prototype), "Page"));
+
+
+;
+"use strict";
+var $;
+(function ($) {
+    class $mol_media extends $mol_object2 {
+        static match(query, next) {
+            if (next !== undefined)
+                return next;
+            const res = this.$.$mol_dom_context.matchMedia?.(query) ?? {};
+            res.onchange = () => this.match(query, res.matches);
+            return res.matches;
+        }
+    }
+    __decorate([
+        $mol_mem_key
+    ], $mol_media, "match", null);
+    $.$mol_media = $mol_media;
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    function parse(theme) {
+        if (theme === 'true')
+            return true;
+        if (theme === 'false')
+            return false;
+        return null;
+    }
+    function $mol_lights(next) {
+        const arg = parse(this.$mol_state_arg.value('mol_lights'));
+        const base = this.$mol_media.match('(prefers-color-scheme: light)');
+        if (next === undefined) {
+            return arg ?? this.$mol_state_local.value('$mol_lights') ?? base;
+        }
+        else {
+            if (arg === null) {
+                this.$mol_state_local.value('$mol_lights', next === base ? null : next);
+            }
+            else {
+                this.$mol_state_arg.value('mol_lights', String(next));
+            }
+            return next;
+        }
+    }
+    $.$mol_lights = $mol_lights;
+})($ || ($ = {}));
+
+;
+"use strict";
+
+;
+"use strict";
+var $;
+(function ($) {
+    var $$;
+    (function ($$) {
+        class $mol_chat extends $.$mol_chat {
+            opened() {
+                return this.$.$mol_state_arg.value('mol_chat') !== null;
+            }
+            pages() {
+                return this.opened() ? [this.Page()] : [];
+            }
+            standalone() {
+                const seed = this.seed();
+                const origin = new URL(this.$.$mol_state_arg.href()).origin;
+                return `https://talks.hyoo.ru/#!chat=${seed}`;
+            }
+            embed() {
+                const seed = this.seed();
+                const lights = String(this.$.$mol_lights());
+                const embed = this.$.$mol_state_arg.href();
+                return `https://talks.hyoo.ru/#!chat=${encodeURIComponent(seed)}/mol_lights=${lights}`;
+            }
+        }
+        __decorate([
+            $mol_mem
+        ], $mol_chat.prototype, "standalone", null);
+        __decorate([
+            $mol_mem
+        ], $mol_chat.prototype, "embed", null);
+        $$.$mol_chat = $mol_chat;
+    })($$ = $.$$ || ($.$$ = {}));
+})($ || ($ = {}));
+
+;
+"use strict";
+var $;
+(function ($) {
+    $mol_style_attach("mol/chat/chat.view.css", "[mol_chat_page] {\n\tflex: 1 0 30rem;\n}\n");
+})($ || ($ = {}));
+
+;
 "use strict";
 var $;
 (function ($) {
@@ -16148,11 +16350,6 @@ var $;
 			const obj = new this.$.$hyoo_crus_status();
 			return obj;
 		}
-		Info(){
-			const obj = new this.$.$mol_text();
-			(obj.text) = () => ("Одна змейка, чтобы управлять миром");
-			return obj;
-		}
 		score_text(){
 			return "Очки: 1";
 		}
@@ -16221,6 +16418,21 @@ var $;
 			(obj.rows) = () => ((this.y_list()));
 			return obj;
 		}
+		chat_pages(){
+			return (this.Chat().pages());
+		}
+		Chat(){
+			const obj = new this.$.$mol_chat();
+			(obj.opened) = () => (true);
+			(obj.sub) = () => (null);
+			(obj.seed) = () => ("uv1w0i_p0lo5c");
+			return obj;
+		}
+		Pages2(){
+			const obj = new this.$.$mol_view();
+			(obj.sub) = () => ((this.chat_pages()));
+			return obj;
+		}
 		logs(){
 			return "";
 		}
@@ -16231,6 +16443,9 @@ var $;
 		}
 		title(){
 			return "CRUSивая Змейка";
+		}
+		snake_seed(){
+			return "4s76OmhG_LfZhGVGd";
 		}
 		max_x(){
 			return 4;
@@ -16250,17 +16465,17 @@ var $;
 		}
 		body(){
 			return [
-				(this.Info()), 
 				(this.Score()), 
 				(this.Keyboard()), 
 				(this.Y()), 
+				(this.Chat()), 
+				(this.Pages2()), 
 				(this.Logs())
 			];
 		}
 	};
 	($mol_mem(($.$milis_snake_app.prototype), "Player_keyboard"));
 	($mol_mem(($.$milis_snake_app.prototype), "Status"));
-	($mol_mem(($.$milis_snake_app.prototype), "Info"));
 	($mol_mem(($.$milis_snake_app.prototype), "Score"));
 	($mol_mem(($.$milis_snake_app.prototype), "left"));
 	($mol_mem(($.$milis_snake_app.prototype), "right"));
@@ -16270,6 +16485,8 @@ var $;
 	($mol_mem_key(($.$milis_snake_app.prototype), "Cell"));
 	($mol_mem_key(($.$milis_snake_app.prototype), "X"));
 	($mol_mem(($.$milis_snake_app.prototype), "Y"));
+	($mol_mem(($.$milis_snake_app.prototype), "Chat"));
+	($mol_mem(($.$milis_snake_app.prototype), "Pages2"));
 	($mol_mem(($.$milis_snake_app.prototype), "Logs"));
 	($mol_mem(($.$milis_snake_app.prototype), "person"));
 	($.$milis_snake_app_cell) = class $milis_snake_app_cell extends ($.$mol_button_major) {
@@ -16393,9 +16610,7 @@ var $;
     (function ($$) {
         class $milis_snake_app extends $.$milis_snake_app {
             person() {
-                const land_ref = '4s76OmhG_LfZhGVGd';
-                const node = $hyoo_crus_glob.Node($hyoo_crus_ref(land_ref), $milis_snake_person_crus);
-                return node;
+                return this.$.$hyoo_crus_glob.home($milis_snake_person_crus);
             }
             size() {
                 return this.max_x() * this.max_y();
@@ -16489,7 +16704,7 @@ var $;
                 this.snake([new_head, ...this.snake().slice(0, this.snake().length - 1)]);
             }
             score_text() {
-                return `Очки: ${this.person().score()}. Рекорд: ${this.person().max_score()}. Змеек было: ${this.person().death_count()}`;
+                return `# Очки: ${this.person().score()}. Рекорд: ${this.person().max_score()}. Змеек было: ${this.person().death_count()}`;
             }
             move(direction) {
                 const new_head = { ...this.snake_head() };
