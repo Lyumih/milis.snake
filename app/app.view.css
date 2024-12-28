@@ -12,3 +12,7 @@
 [milis_snake_app_cell][head] {
 	background: blue;
 }
+
+[milis_snake_app_chat_page] {
+	max-height: 700px;
+}
