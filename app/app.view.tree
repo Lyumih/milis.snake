@@ -1,5 +1,6 @@
 $milis_snake_app $mol_page
 	title \CRUSивая Змейка
+	snake_seed \4s76OmhG_LfZhGVGd
 	max_x 4
 	max_y 3
 	person $milis_snake_person_crus
@@ -17,8 +18,6 @@ $milis_snake_app $mol_page
 	foot /
 		<= Status $hyoo_crus_status
 	body /
-		<= Info $mol_text text \
-			\Одна змейка, чтобы управлять миром
 		<= Score $mol_text text <= score_text \Очки: 1
 		<= Keyboard $milis_snake_app_keyboard
 			left? <= left? null
@@ -32,6 +31,12 @@ $milis_snake_app $mol_page
 					is_cell_food <= is_cell_food* false
 					is_cell_snake <= is_cell_snake* false
 					is_cell_snake_head <= is_cell_snake_head* false
+		<= Chat $mol_chat
+			opened true
+			sub null
+			seed \uv1w0i_p0lo5c
+			pages => chat_pages
+		<= Pages2 $mol_view sub <= chat_pages
 		<= Logs $mol_text text <= logs \
 
 $milis_snake_app_cell $mol_button_major
