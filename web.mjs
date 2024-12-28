@@ -16605,7 +16605,7 @@ var $;
 "use strict";
 var $;
 (function ($) {
-    $mol_style_attach("milis/snake/app/app.view.css", "[milis_snake_app_cell] {\n\twidth: 50px;\n\theight: 50px;\n}\n[milis_snake_app_cell][snake] {\n\tbackground: green;\n}\n[milis_snake_app_cell][food] {\n\tbackground: orange;\n\tborder-radius: 50%;\n}\n[milis_snake_app_cell][head] {\n\tbackground: blue;\n}\n");
+    $mol_style_attach("milis/snake/app/app.view.css", "[milis_snake_app_cell] {\n\twidth: 50px;\n\theight: 50px;\n}\n[milis_snake_app_cell][snake] {\n\tbackground: green;\n}\n[milis_snake_app_cell][food] {\n\tbackground: orange;\n\tborder-radius: 50%;\n}\n[milis_snake_app_cell][head] {\n\tbackground: blue;\n}\n\n[milis_snake_app_chat_page] {\n\tmax-height: 700px;\n}\n");
 })($ || ($ = {}));
 
 
