@@ -1,0 +1,10 @@
+{
+	"name": "milis_snake_app",
+	"short_name": "milis_snake_app",
+	"description": "",
+	"id": "milis_snake_app",
+	"start_url": ".",
+	"display": "standalone",
+	"background_color": "#000000",
+	"theme_color": "#000000"
+}
